@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_chat_app/messenger/latest_user.dart';
 import 'user_list.dart';
 
 class HomePage extends StatelessWidget {
@@ -32,7 +33,8 @@ class HomePage extends StatelessWidget {
           body: TabBarView(
             children: [
               new UserList(),
-              new Text('Recently Chat'),
+              new LatestUserList(),
+
             ],
           ),
         ),

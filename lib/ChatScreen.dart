@@ -84,7 +84,6 @@ class ChatScreenState extends State<ChatScreen> {
               : null,
         ));
   }
-
   CupertinoButton getIOSSendButton() {
     return new CupertinoButton(
       child: new Text("Send"),
@@ -185,6 +184,7 @@ class ChatScreenState extends State<ChatScreen> {
     analytics.logEvent(name: 'send_message');
   }
 
+
   Future<Null> _ensureLoggedIn() async {
     GoogleSignInAccount signedInUser = googleSignIn.currentUser;
     if (signedInUser == null)
@@ -203,7 +203,7 @@ class ChatScreenState extends State<ChatScreen> {
           idToken: credentials.idToken, accessToken: credentials.accessToken);
     }
   }
-
+//Sign out
   Future _signOut() async {
     await auth.signOut();
     googleSignIn.signOut();

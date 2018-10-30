@@ -103,7 +103,7 @@ class _LoginScreenState extends State<LoginScreen> {
         'photoUrl':googleSignIn.currentUser.photoUrl,
       };
       reference.push().set(user_info);
-
+    analytics.logEvent(name: 'user_info');
 
     Navigator.push(
       context,
@@ -122,6 +122,7 @@ class _LoginScreenState extends State<LoginScreen> {
       await googleSignIn.signIn();
       analytics.logLogin();
     }
+
     currentUserEmail = googleSignIn.currentUser.email;
 
     if (await auth.currentUser() == null) {

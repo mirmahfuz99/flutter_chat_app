@@ -3,12 +3,12 @@ import 'package:firebase_database/firebase_database.dart';
 import 'package:firebase_database/ui/firebase_animated_list.dart';
 import 'package:flutter_chat_app/ChatScreen.dart';
 
-class UserList extends StatefulWidget {
+class LatestUserList extends StatefulWidget {
   @override
-  _UserListState createState() => _UserListState();
+  _LatestUserListState createState() => _LatestUserListState();
 }
 
-class _UserListState extends State<UserList> {
+class _LatestUserListState extends State<LatestUserList> {
 
   List<Users> zoom_users = List();
 
@@ -18,7 +18,7 @@ class _UserListState extends State<UserList> {
   void initState() {
     super.initState();
 
-    database = FirebaseDatabase.instance.reference().child("users");
+    database = FirebaseDatabase.instance.reference().child("messages");
 
   }
 
@@ -40,9 +40,9 @@ class _UserListState extends State<UserList> {
                 future: database.child(userSnapshot.key).once(),
                 builder: (BuildContext context, userSnapshot){
                   if(userSnapshot.hasData){
-                    String name = userSnapshot.data.value['name'];
+                    String name = userSnapshot.data.value['senderName'];
                     String email = userSnapshot.data.value['email'];
-                    String photoUrl  = userSnapshot.data.value['photoUrl'];
+                    String photoUrl  = userSnapshot.data.value['senderPhotoUrl'];
 
                     Users lastMessages = new Users(
                       name: name,
@@ -77,8 +77,8 @@ Widget userListWidget(Users users, BuildContext context){
         new ListTile(
           onTap: (){
             Navigator.push(
-                context,
-            MaterialPageRoute(builder: (context) => new ChatScreen()),
+              context,
+              MaterialPageRoute(builder: (context) => new ChatScreen()),
             );
           },
           leading: new CircleAvatar(
