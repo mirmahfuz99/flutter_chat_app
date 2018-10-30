@@ -99,8 +99,8 @@ class _LoginScreenState extends State<LoginScreen> {
     await _ensureLoggedIn();
       var user_info = <String, dynamic>{
         'email':googleSignIn.currentUser.email,
-        'senderName':googleSignIn.currentUser.displayName,
-        'senderPhotoUrl':googleSignIn.currentUser.photoUrl,
+        'name':googleSignIn.currentUser.displayName,
+        'photoUrl':googleSignIn.currentUser.photoUrl,
       };
       reference.push().set(user_info);
 
@@ -122,7 +122,6 @@ class _LoginScreenState extends State<LoginScreen> {
       await googleSignIn.signIn();
       analytics.logLogin();
     }
-
     currentUserEmail = googleSignIn.currentUser.email;
 
     if (await auth.currentUser() == null) {
