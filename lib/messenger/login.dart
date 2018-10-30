@@ -53,7 +53,16 @@ class _LoginScreenState extends State<LoginScreen> {
         children: <Widget>[
           Center(
             child: FlatButton(
-                onPressed: _handleSignIn,
+                onPressed: (){
+                  _handleSignIn();
+                  /*_ensureLoggedIn();
+                  var user_info = <String, dynamic>{
+                    'email':googleSignIn.currentUser.email,
+                    'senderName':googleSignIn.currentUser.displayName,
+                    'senderPhotoUrl':googleSignIn.currentUser.photoUrl,
+                  };
+                  reference.push().set(user_info);*/
+                },
                 child: Text(
                   'SIGN IN WITH GOOGLE',
                   style: TextStyle(fontSize: 16.0),
@@ -83,25 +92,26 @@ class _LoginScreenState extends State<LoginScreen> {
 
   Future<Null> _handleSignIn() async {
 
-
     setState(() {
       isLoading = true;
     });
 
     await _ensureLoggedIn();
-    reference.push().set({
+      var user_info = <String, dynamic>{
+        'email':googleSignIn.currentUser.email,
+        'senderName':googleSignIn.currentUser.displayName,
+        'senderPhotoUrl':googleSignIn.currentUser.photoUrl,
+      };
+      reference.push().set(user_info);
 
-      'email': googleSignIn.currentUser.email,
-      'senderName': googleSignIn.currentUser.displayName,
-      'senderPhotoUrl': googleSignIn.currentUser.photoUrl,
-    });
 
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => new LoginScreen()),
+          builder: (context) => new HomePage()),
     );
   }
+
 
 
   Future<Null> _ensureLoggedIn() async {
