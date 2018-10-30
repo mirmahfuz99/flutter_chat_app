@@ -28,7 +28,7 @@ class _UserListState extends State<UserList> {
     return FirebaseAnimatedList(
       defaultChild: Center(child: new CircularProgressIndicator(backgroundColor: Colors.deepPurpleAccent,)),
       query: database,
-      sort: (a,b) => (b.key.compareTo(a.key)), // last added item will be show first
+//      sort: (a,b) => (b.key.compareTo(a.key)), // last added item will be show first
       itemBuilder: (_, DataSnapshot userSnapshot, Animation<double> animation, int index) {
         //get last message data
         return new FutureBuilder<DataSnapshot>(
@@ -41,12 +41,12 @@ class _UserListState extends State<UserList> {
                 builder: (BuildContext context, userSnapshot){
                   if(userSnapshot.hasData){
                     String name = userSnapshot.data.value['name'];
-                    String email = userSnapshot.data.value['email'];
+                    //String email = userSnapshot.data.value['email'];
                     String photoUrl  = userSnapshot.data.value['photoUrl'];
 
                     Users lastMessages = new Users(
                       name: name,
-                      email: email,
+                      //email: email,
                       photoUrl: photoUrl,
                     );
                     return userListWidget(lastMessages, context);
@@ -91,9 +91,9 @@ Widget userListWidget(Users users, BuildContext context){
               new Text(
                 users.name,
               ),
-              new Text(
+              /*new Text(
                 users.email,
-              )
+              )*/
             ],
           ),
         ),

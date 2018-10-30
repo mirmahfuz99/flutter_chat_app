@@ -96,6 +96,8 @@ class _LoginScreenState extends State<LoginScreen> {
       isLoading = true;
     });
 
+
+
     await _ensureLoggedIn();
       var user_info = <String, dynamic>{
         'email':googleSignIn.currentUser.email,
@@ -104,12 +106,15 @@ class _LoginScreenState extends State<LoginScreen> {
       };
       reference.push().set(user_info);
     analytics.logEvent(name: 'user_info');
-
     Navigator.push(
       context,
       MaterialPageRoute(
-          builder: (context) => new HomePage()),
-    );
+          builder: (context) => new HomePage()),);
+
+
+
+
+
   }
 
 

@@ -65,6 +65,7 @@ class ChatMessageListItem extends StatelessWidget {
   List<Widget> getReceivedMessageLayout() {
     return <Widget>[
       new Column(
+
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           new Container(

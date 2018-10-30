@@ -41,12 +41,12 @@ class _LatestUserListState extends State<LatestUserList> {
                 builder: (BuildContext context, userSnapshot){
                   if(userSnapshot.hasData){
                     String name = userSnapshot.data.value['senderName'];
-                    String email = userSnapshot.data.value['email'];
+                    //String email = userSnapshot.data.value['email'];
                     String photoUrl  = userSnapshot.data.value['senderPhotoUrl'];
 
                     Users lastMessages = new Users(
                       name: name,
-                      email: email,
+                      //email: email,
                       photoUrl: photoUrl,
                     );
                     return userListWidget(lastMessages, context);
@@ -91,9 +91,9 @@ Widget userListWidget(Users users, BuildContext context){
               new Text(
                 users.name,
               ),
-              new Text(
+             /* new Text(
                 users.email,
-              )
+              )*/
             ],
           ),
         ),
