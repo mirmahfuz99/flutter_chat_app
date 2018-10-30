@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_app/ChatScreen.dart';
+import 'package:flutter_chat_app/messenger/login.dart';
 import 'package:flutter_chat_app/util/Themes.dart';
 
 void main() => runApp(new FlutterChatApp());
@@ -15,7 +16,7 @@ class FlutterChatApp extends StatelessWidget {
       theme: defaultTargetPlatform == TargetPlatform.iOS
           ? Themes.kIOSTheme
           : Themes.kDefaultTheme,
-      home: new ChatScreen(),
+      home: new LoginScreen(),
     );
   }
 }
