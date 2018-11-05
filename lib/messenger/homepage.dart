@@ -23,7 +23,7 @@ class HomePage extends StatelessWidget {
                   width: 70.0,
 
                   child: new Tab(
-                    text: "CHAT",
+                    text: "CHAT Tab",
                   ),
                 ),
 
