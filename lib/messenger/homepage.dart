@@ -21,6 +21,7 @@ class HomePage extends StatelessWidget {
 
                 Container(
                   width: 70.0,
+
                   child: new Tab(
                     text: "CHAT",
                   ),
