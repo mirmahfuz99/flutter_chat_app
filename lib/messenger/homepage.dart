@@ -28,7 +28,7 @@ class HomePage extends StatelessWidget {
 
               ],
             ),
-            title: Text('Messenger'),
+            title: Text('Messenger Tab'),
           ),
           body: TabBarView(
             children: [
